@@ -6,8 +6,11 @@
 	</div>
 </div>
 <div class="row-fluid">
-	<app-categories>Cargando...</app-categories>
+	<app-categories (onChangeCategory)="onChangeCategory($event)">Cargando...</app-categories>
 </div>
 <div class="row-fluid">
-	<app-word-display>Cargando...</app-word-display>
+	<app-word-display [word]="word" >Cargando...</app-word-display>
+</div>
+<div class="row-fluid">
+	<app-word-evaluate>Cargando..</app-word-evaluate>
 </div>

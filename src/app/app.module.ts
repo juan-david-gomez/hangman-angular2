@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { WordDisplayComponent } from './word-display/word-display.component';
+import { WordEvaluateComponent } from './word-evaluate/word-evaluate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    WordDisplayComponent
+    WordDisplayComponent,
+    WordEvaluateComponent
   ],
   imports: [
     BrowserModule,
