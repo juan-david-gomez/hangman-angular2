@@ -11,17 +11,31 @@ import { WordEvaluateComponent } from './word-evaluate/word-evaluate.component';
 export class AppComponent {
   title = 'Hangman';
   word  = '';
+  wordArr  = [];
   category = '';
   onChangeCategory(category: string){
   	this.category = category; 
   	this.setWord();
   }
+  onAcertWord(indexes:number[]){
+  	console.log(indexes);
+  }
 
   setWord(){
   	if(this.category == '1') {
-  		this.word = 'Juan';
+  		this.setWordArr('juan');
   	}else if(this.category=='2'){
-  		this.word = 'David';
+  		this.setWordArr('david');
   	}
+  	// console.log(this.wordArr);
   }
+  setWordArr(word:string){
+  		this.word = word;
+	  	this.wordArr = [];
+	  	for (var i = 0; i < word.length; i++) {
+			var originLetter = word.charAt(i);			
+		    var letter = originLetter.toUpperCase();
+		    this.wordArr[i] = letter;
+		}
+   }
 }
