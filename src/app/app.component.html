@@ -12,5 +12,5 @@
 	<app-word-display [wordArr]="wordArr" >Cargando...</app-word-display>
 </div>
 <div class="row-fluid">
-	<app-word-evaluate (onAcertWord)="onAcertWord($event)" [wordArr]="wordArr" >Cargando..</app-word-evaluate>
+	<app-word-evaluate (onAcertWord)="onAcertWord($event)" [wordArr]="wordArr" [gameStatus]="gameStatus" >Cargando..</app-word-evaluate>
 </div>

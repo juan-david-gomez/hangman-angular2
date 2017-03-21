@@ -1,12 +1,13 @@
 import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
-
+import { LetterClass } from '../shared/letter.class';
 @Component({
   selector: 'app-word-evaluate',
   templateUrl: './word-evaluate.component.html',
   styleUrls: ['./word-evaluate.component.css']
 })
 export class WordEvaluateComponent implements OnInit {
-	@Input() wordArr:string[];
+	@Input() wordArr:LetterClass[];
+	@Input() gameStatus:any[];
 	@Output() onAcertWord = new EventEmitter<number[]>();
 	lettersErr = [];
 	constructor() { }
@@ -35,11 +36,11 @@ export class WordEvaluateComponent implements OnInit {
 		}
 	}
 	
-	getAllIndexes(arr:string[], val:string) {
+	getAllIndexes(arr:LetterClass[], val:string) {
     	let indexes = [], i;
     	let value = val.toUpperCase();
 	    for(i = 0; i < arr.length; i++)
-	        if (arr[i] === value){
+	        if (arr[i].letter === value){
 	            indexes.push(i);
 	        }
 	    return indexes;

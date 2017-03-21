@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges,Input,SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges,Input,SimpleChanges } from '@angular/core'
+import { LetterClass } from '../shared/letter.class';
 
 @Component({
   selector: 'app-word-display',
@@ -6,10 +7,11 @@ import { Component, OnInit, OnChanges,Input,SimpleChanges } from '@angular/core'
   styleUrls: ['./word-display.component.css']
 })
 export class WordDisplayComponent implements OnInit,OnChanges {
-  @Input() wordArr : string[];
+  @Input() wordArr : LetterClass[];
+  @Input() gameStatus:any[];
   
   lettersSpaces = [];
-
+  showLetter = [];
   constructor() { }
 
   ngOnInit() {
@@ -21,18 +23,17 @@ export class WordDisplayComponent implements OnInit,OnChanges {
     this.setlettersSpaces(changes['wordArr'].currentValue);
   }
 
-  setlettersSpaces(wordArr:string[]){
+  setlettersSpaces(wordArr:LetterClass[]){
 	  	this.lettersSpaces = [];
 	  	let i = 0;
+      console.log(wordArr);
 	  	for(let index in wordArr){
-			var originLetter = wordArr[index];			
-		    this.lettersSpaces[i] = this.isSpace(originLetter)?'':' ';
+			  var originLetter = wordArr[index];		
+		    /*this.lettersSpaces[i] = this.isSpace(originLetter)?'':' ';*/
+        this.lettersSpaces[i] = originLetter;
 	  		i++;
 	  	}
-  }
-
-  isSpace(letter:string) {
-		return letter == ' ';
+      console.log(this.lettersSpaces);
   }
 
 }
